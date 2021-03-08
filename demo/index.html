@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>themejs sample</title>
+  <link rel="stylesheet" href="../demo/main.css">
+</head>
+<body>
+  <h1>sample theme js</h1>
+
+  <div id="main-box">
+    <h2>現在のテーマ<span id="nowtheme" style="padding-left: 20px;"></span>
+      <svg version="1.1" id="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 48px; height: 48px; opacity: 1;" xml:space="preserve">
+      <g>
+        <path class="sun" d="M512,256l-61.567-52.118l27.283-75.913l-79.417-14.26L384.04,34.276l-75.921,27.291L256,0l-52.118,61.566
+          l-75.913-27.282l-14.268,79.424L34.283,127.96l27.284,75.929L0,256l61.567,52.118l-27.284,75.913l79.418,14.26l14.259,79.433
+          l75.921-27.291L256,512l52.118-61.566l75.913,27.282l14.267-79.424l79.417-14.252l-27.283-75.921L512,256z M256,427.464V84.536
+          c94.693,0,171.464,76.772,171.464,171.464S350.693,427.464,256,427.464z"></path>
+      </g>
+      </svg>
+      <svg version="1.1" id="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 48px; height: 48px; opacity: 1;" xml:space="preserve">
+        <g>
+          <polygon class="moon" points="100.704,270.59 134.681,252.713 168.721,270.59 162.236,232.711 189.75,205.906 151.701,200.329 
+            134.681,165.862 117.723,200.329 79.675,205.906 107.169,232.711 	"></polygon>
+          <polygon class="moon" points="157.208,82.033 183.824,68.037 210.48,82.033 205.392,52.364 226.96,31.375 197.152,26.995 183.824,0 
+            170.536,26.995 140.747,31.375 162.275,52.364 	"></polygon>
+          <polygon class="moon" points="21.733,120.54 43.362,109.168 65.009,120.54 60.879,96.439 78.397,79.379 54.176,75.828 43.362,53.89 
+            32.547,75.828 8.345,79.379 25.843,96.439 	"></polygon>
+          <path class="moon" d="M330.87,24.092c16.401,32.034,25.918,68.267,25.918,106.734c0,129.389-104.848,234.277-234.237,234.277
+            c-38.507,0-74.74-9.478-106.802-25.957C48.329,439.414,142.423,512,253.556,512c138.108,0,250.099-111.991,250.099-250.1
+            C503.655,150.778,431.129,56.654,330.87,24.092z"></path>
+        </g>
+        </svg>
+    </h2>
+    <div class="sample-box">
+      <p>これはサンプルテキストです。文字の大きさや色、改行位置などを確認するために入力されています。これはサンプルテキストです。文字の大きさや色、改行位置などを確認するために入力されています。これはサンプルテキストです。文字の大きさや色、改行位置などを確認するために入力されています。</p>
+    </div>
+    <div class="input-group">
+      <label for="theme">選択中のテーマ : </label>
+      <select name="theme" id="theme">
+      </select>
+    </div>
+    <div class="sample-box">
+      <a href="https://github.com/TakuyaKinoshita/JS_DarkMode" class="mb">JS_DarkModeを確認する</a>
+    </div>
+  </div>
+  <script src="../src/theme.js"></script>
+  <script type="text/javascript">
+    // use simple
+    var theme = new themes(null)
+
+    var themeList = theme.CurrentThemeList
+    document.getElementById("nowtheme").innerHTML = theme.CurrentTheme
+    var select = document.getElementById("theme")
+    themeList.forEach(element => {
+      var option = document.createElement('option')
+      option.setAttribute('value', element)
+      option.innerHTML = element
+      if (element === theme.CurrentTheme) option.selected = true
+      select.appendChild(option)
+    });
+    
+    select.addEventListener('change', (e) => {
+      theme.ChangeTheme(e.currentTarget.value)
+      document.getElementById("nowtheme").innerHTML = theme.CurrentTheme
+    })
+  </script>
+</body>
+</html>

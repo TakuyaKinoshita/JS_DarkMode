@@ -1,0 +1,51 @@
+
+:root[theme="light"] {
+  --bgcolor: #f8f9fa;
+  --textcolor: #343a40;
+  --linkcolor: #343a40;
+}
+:root[theme="dark"] {
+  --bgcolor: #343a40;
+  --textcolor: #f8f9fa;
+  --linkcolor: #f8f9fa;
+}
+:root[theme="theme2"] {
+  --bgcolor: #00b1ae;
+  --textcolor: #495057;
+  --linkcolor: #495057;
+}
+
+body {
+  background-color: var(--bgcolor);
+  color: var(--textcolor);
+}
+
+a {
+  color: var(--linkcolor);
+}
+
+.mb {
+  margin-bottom: 20px;
+}
+
+svg {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+:root[theme="light"] #moon {
+  display: none;
+}
+:root[theme="dark"] #sun {
+  display: none;
+}
+
+.moon {
+  fill: yellow;
+}
+
+.sun {
+  fill: #ee752f;
+}
