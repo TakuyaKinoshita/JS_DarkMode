@@ -38,7 +38,7 @@ body {
 
 ## please see demo
 
-[demo URL](https://TakuyaKinoshita.github.io/JS_DarkMode/)
+[demo URL](https://TakuyaKinoshita.github.io/JS_DarkMode/docs/)
 
 ## LICENSE
 
